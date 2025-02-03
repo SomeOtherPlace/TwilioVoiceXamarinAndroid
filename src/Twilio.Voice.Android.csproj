@@ -16,7 +16,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.AndroidX.Annotation" Version="1.2.0.1" PrivateAssets="all" />
-    <PackageReference Include="Xamarin.ReLinker" Version="1.4.4" PrivateAssets="all" />
+    <PackageReference Include="Xamarin.ReLinker" Version="1.4.4" />
 
     <AndroidMavenLibrary Include="com.getkeepsafe.relinker:relinker" Version="1.4.4" Bind="false" Pack="false" />
     <AndroidMavenLibrary Include="com.twilio:voice-android" Version="6.8.0" />
