@@ -1,23 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0-android</TargetFramework>
+    <TargetFramework>net9.0-android</TargetFramework>
+    <OutputType>Library</OutputType>
     <Version>6.8.0.0</Version>
     <AssemblyName>Twilio.Voice.Android</AssemblyName>
     <PackageId>Twilio.Voice.Android</PackageId>
-  </PropertyGroup>
-  <PropertyGroup Condition="$(Configuration.Contains('Debug'))">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition="$(Configuration.Contains('Release'))">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
     <None Include="Additions\AboutAdditions.txt" />
@@ -28,11 +15,10 @@
     <TransformFile Include="Transforms\EnumMethods.xml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.ReLinker">
-      <Version>1.4.4</Version>
-    </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <LibraryProjectZip Include="Jars\voice-android-6.8.0.aar" />
+    <PackageReference Include="Xamarin.AndroidX.Annotation" Version="1.2.0.1" PrivateAssets="all" />
+    <AndroidMavenLibrary Include="com.getkeepsafe.relinker:relinker" Version="1.4.4" Bind="false" Pack="false" />
+
+    <AndroidMavenLibrary Include="com.twilio:voice-android" Version="6.8.0" />
+    <AndroidNamespaceReplacement Include='com.twilio.voice' Replacement='TwilioVoice' />
   </ItemGroup>
 </Project>
